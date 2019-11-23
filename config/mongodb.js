@@ -3,7 +3,10 @@ const Mongoose = require("mongoose");
 let database = "sismosDB";
 let port = "27017";
 let host = "localhost";
-let uri = `mongodb://${host}:${port}/${database}`
+let usu = "admin";
+let pass = "root2";
+//let uri = `mongodb://${host}:${port}/${database}`
+let uri = `mongodb+srv://${usu}:${pass}@cluster0-4gs8g.mongodb.net/${database}?retryWrites=true&w=majority`;
 
 const connect = ()=>{
     Mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
