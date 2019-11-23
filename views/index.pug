@@ -1,6 +1,86 @@
-extends layout
+<!DOCTYPE html>
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="/stylesheets/bootstrap.css")
+        link(rel='stylesheet', href='/stylesheets/personal.css')
+        title= title
+    body.container
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+            a.navbar-brand(href="/") Inicio
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
 
-block content
-  h1= title
-  p Welcome to #{title}
-  a(href="/stats") Estadisticas
+            div.collapse.navbar-collapse#navbarColor01
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(href="#insert" data-toggle="modal") Registrar Sismo
+                <form class="form-inline my-2 my-lg-0">
+                    input.form-control.mr-sm-2(type="text" placeholder="buscar un sismo")
+                    button.btn.btn-secondary.my-2.my-sm-0(type="submit") Buscar
+        
+        br
+        center
+            h1 REGISTROS
+        br
+
+        div
+            table.table.table-hover
+                thead
+                    tr
+                        th(scope="col") Titulo
+                        th(scope="col") Magnitud
+                        th(scope="col") Epicentro
+                        th(scope="col") Latitud
+                        th(scope="col") Longitud
+                        th(scope="col") Replicas
+                        th(scope="col") Actualizar
+                        th(scope="col") Eliminar
+                tbody
+                  tr.table-active
+                      th(scope="row") Active
+                          td Column content
+                          td Column content
+                          td Column content
+                          td Column content
+                          td Column content
+                          td Column content
+                          td Column content
+
+        div.modal.fade#insert(tabindex="-1" role="dialog")
+            div.modal-dialog.modal-dialog-centered(role="document")
+                div.modal-content
+                    div.modal-header
+                        h5.modal-title#exampleModalLongTitle Registrar sismo
+                        button.close(type="button" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+
+                    div.modal-body
+                        div.form-group.log-form-modal
+                            label.col-form-label(for="titulo") Titulo
+                            input#titulo.form-control(type="text" placeholder="Terremoto del 86")
+                            br
+                            label.col-form-label(for="magnitud") Magnitud
+                            input#magnitud.form-control(type="text" placeholder="5")
+                            br
+                            label.col-form-label(for="epicentro") Epicentro
+                            input#epicentro.form-control(type="text" placeholder="San salvador")
+                            br
+                            label.col-form-label(for="latitud") Latitud
+                            input#latitud.form-control(type="text" placeholder="50")
+                            br
+                            label.col-form-label(for="longitud") Longitud
+                            input#longitud.form-control(type="text" placeholder="50")
+                            br
+                            br
+                            label.col-form-label(for="replicas") Replicas
+                            input#replicas.form-control(type="text" placeholder="2")
+                            br
+                            button#signin-btn.btn.btn-primary(type="button") Registrarse
+                    div.modal-footer
+                        button.btn.btn-outline-danger(type="button" data-dismiss="modal") Cerrar
+
+script(src='/javascripts/jquery.js')
+script(src='/javascripts/bootstrap.js')
